@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: review-app-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: review-app
+  template:
+    metadata:
+      labels:
+        app: review-app
+    spec:
+      containers:
+      - name: review-app-container
+        image: 761639967858.dkr.ecr.eu-north-1.amazonaws.com/review-app:latest
+        ports:
+        - containerPort: 5000
